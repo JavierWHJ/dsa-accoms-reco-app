@@ -9,9 +9,9 @@ import SearchComponent from './components/SearchComponent';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
+import AccomodationsComponent from './components/AccomodationsComponent';
 
 const { Header, Content, Footer } = Layout;
 
@@ -33,7 +33,7 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/accomodations">
-                                {/* <Users /> */}
+                                <AccomodationsComponent/>
                             </Route>
                             <Route path="/">
                                 <CarouselComponent/>
