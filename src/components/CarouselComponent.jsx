@@ -8,7 +8,7 @@ const contentStyle = {
 
 const CarouselComponent = () => {
     return (
-        <Carousel autoplay>
+        <Carousel autoplay style={{position: "relative"}}>
             <div>
                 <h3 style={contentStyle}><img src="https://tripfinder-redq.firebaseapp.com/static/media/1.3bd6d5f8.jpg" alt="banner1"/></h3>
             </div>

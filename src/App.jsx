@@ -4,6 +4,7 @@ import CarouselComponent from './components/CarouselComponent';
 
 import { Layout, Menu, Button } from 'antd';
 import LogoComponent from './components/LogoComponent';
+import SearchComponent from './components/SearchComponent';
 
 const { Header, Content, Footer } = Layout;
 
@@ -22,6 +23,7 @@ function App() {
             </Header>
             <Content>
                 <CarouselComponent/>
+                <SearchComponent/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>AccomsFinder ©2020</Footer>
         </Layout>
