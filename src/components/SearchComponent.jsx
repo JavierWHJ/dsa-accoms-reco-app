@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './SearchComponent.module.css'
 
+import { Link } from 'react-router-dom';
+
 const SearchComponent = () => {
     return (
         <div className={styles.container}>
@@ -12,7 +14,7 @@ const SearchComponent = () => {
                     <input type="date" placeholder="Start Date" class="ant-input ant-input-lg pac-target-input" />
                     <input type="date" placeholder="End Date" class="ant-input ant-input-lg pac-target-input" />
                     <input type="number" placeholder="Number of People" class="ant-input ant-input-lg pac-target-input" />
-                    <button type="submit" class="ant-btn ant-btn-primary ant-btn-lg"><span>Find Accomodations</span></button>
+                    <Link to="/accomodations"><button type="submit" class="ant-btn ant-btn-primary ant-btn-lg"><span>Find Accomodations</span></button></Link>
                 </div>
             </div>
         </div>

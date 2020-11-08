@@ -6,6 +6,13 @@ import { Layout, Menu, Button } from 'antd';
 import LogoComponent from './components/LogoComponent';
 import SearchComponent from './components/SearchComponent';
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+
 const { Header, Content, Footer } = Layout;
 
 function App() {
@@ -22,8 +29,19 @@ function App() {
                 </Menu>
             </Header>
             <Content>
-                <CarouselComponent/>
-                <SearchComponent/>
+                <Router>
+                    <div>
+                        <Switch>
+                            <Route path="/accomodations">
+                                {/* <Users /> */}
+                            </Route>
+                            <Route path="/">
+                                <CarouselComponent/>
+                                <SearchComponent/>
+                            </Route>
+                        </Switch>
+                    </div>
+                </Router>
             </Content>
             <Footer style={{ textAlign: 'center' }}>AccomsFinder ©2020</Footer>
         </Layout>
