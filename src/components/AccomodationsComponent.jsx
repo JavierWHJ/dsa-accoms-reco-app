@@ -24,7 +24,7 @@ const menu = (
 
 const AccomodationsComponent = (props) => {
     return (
-        <div style={{height: "100vh", background: "#FFFFFF"}}>
+        <div style={{ background: "#FFFFFF"}}>
             <div style={{marginLeft: "30px", marginRight: "30px"}}>
                 <div>
                     <Dropdown overlay={menu} placement="bottomLeft">

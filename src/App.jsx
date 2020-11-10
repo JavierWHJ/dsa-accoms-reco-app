@@ -18,18 +18,21 @@ const { Header, Content, Footer } = Layout;
 const tempData = [
     {
         name: 'hotel A',
+        address: '123 ABC Road',
         price: '$500',
         amenities: ['wifi', 'breakfast'],
         rating: '4.3',
     },
     {
         name: 'hotel B',
+        address: '123 ABC Road',
         price: '$300',
         amenities: ['wifi'],
         rating: '3.3',
     },
     {
         name: 'hotel C',
+        address: '123 ABC Road',
         price: '$800',
         amenities: ['wifi', 'breakfast', 'gym'],
         rating: '5.0',
