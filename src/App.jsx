@@ -39,6 +39,8 @@ const tempData = [
     },
 ]
 
+const amenities = ['wifi', 'breakfast', 'gym', 'pool', 'kitchen', 'tv'];
+
 function App() {
     return (
         <Layout className="layout">
@@ -61,7 +63,7 @@ function App() {
                             </Route>
                             <Route path="/">
                                 <CarouselComponent/>
-                                <SearchComponent/>
+                                <SearchComponent amenities={amenities}/>
                             </Route>
                         </Switch>
                     </div>
