@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Tag } from 'antd';
+import Rating from 'react-rating';
 
 const AccomodationCard = (props) => {
     return (
@@ -15,7 +16,13 @@ const AccomodationCard = (props) => {
             <h4 style={{margin: "0px", color: "grey"}}>{props.accom.address}</h4>
             <h1 style={{margin: "0px"}}>{props.accom.name}</h1>
             <h4 style={{margin: "0px"}}>{props.accom.price}/Night</h4>
-            <h4 style={{margin: "0px"}}>{props.accom.rating}</h4>
+            <Rating
+                initialRating={props.accom.rating}
+                readonly
+                emptySymbol={<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2018/240/iconmonstr-star-thin.png" className="icon" width="12px" height="12px" alt="empty"/>}
+                fullSymbol={<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-star-3.png" className="icon" width="12px" height="12px" alt="full"/>}
+            />
+            <br/>
             <br/>
             {props.accom.amenities.map(amenity => {
                 return <Tag>{amenity}</Tag>
