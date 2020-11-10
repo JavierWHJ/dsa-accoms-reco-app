@@ -25,7 +25,7 @@ const SearchComponent = (props) => {
                     <input type="date" placeholder="End Date" class="ant-input ant-input-lg pac-target-input" />
                     <input type="number" placeholder="Number of People" class="ant-input ant-input-lg pac-target-input" />
                     
-                    <Link to="/accomodations"><button type="submit" class="ant-btn ant-btn-primary ant-btn-lg"><span>Find Accomodations</span></button></Link>
+                    <Link to="/accomodations"><button type="submit" class="ant-btn ant-btn-primary ant-btn-lg" onClick={props.onSubmitSearch}><span>Find Accomodations</span></button></Link>
                 </div>
                 <div>
                     <span style={{ marginRight: 8 }}>Categories:</span>

@@ -42,6 +42,11 @@ const tempData = [
 const amenities = ['wifi', 'breakfast', 'gym', 'pool', 'kitchen', 'tv'];
 
 function App() {
+
+    const onSubmitSearch = (data) => {
+        console.log(data)
+    }
+
     return (
         <Layout className="layout">
             <Header style={{padding: "0px"}}>
@@ -63,7 +68,7 @@ function App() {
                             </Route>
                             <Route path="/">
                                 <CarouselComponent/>
-                                <SearchComponent amenities={amenities}/>
+                                <SearchComponent amenities={amenities} onSubmitSearch={onSubmitSearch}/>
                             </Route>
                         </Switch>
                     </div>
