@@ -15,6 +15,27 @@ import AccomodationsComponent from './components/AccomodationsComponent';
 
 const { Header, Content, Footer } = Layout;
 
+const tempData = [
+    {
+        name: 'hotel A',
+        price: '$500',
+        amenities: ['wifi', 'breakfast'],
+        rating: '4.3',
+    },
+    {
+        name: 'hotel B',
+        price: '$300',
+        amenities: ['wifi'],
+        rating: '3.3',
+    },
+    {
+        name: 'hotel C',
+        price: '$800',
+        amenities: ['wifi', 'breakfast', 'gym'],
+        rating: '5.0',
+    },
+]
+
 function App() {
     return (
         <Layout className="layout">
@@ -33,7 +54,7 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/accomodations">
-                                <AccomodationsComponent/>
+                                <AccomodationsComponent accoms={tempData}/>
                             </Route>
                             <Route path="/">
                                 <CarouselComponent/>

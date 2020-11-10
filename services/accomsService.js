@@ -4,7 +4,7 @@ const getAccoms = (input) => {
         ratings: input.ratings,
         ammenities: input.ammenities,
     }
-    return fetch("http://localhost:3030/users", {
+    return fetch("http://localhost:3030/accoms", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

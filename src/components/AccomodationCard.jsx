@@ -1,20 +1,20 @@
 import React from 'react';
 import { Card } from 'antd';
 
-const AccomodationCard = () => {
+const AccomodationCard = (props) => {
     return (
         <Card
-            style={{ width: 300 }}
+            style={{ width: 300, margin: "20px" }}
             cover={
             <img
                 alt="example"
-                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                src="https://imhotel.com/wp-content/uploads/2020/01/CLASSIC-STUDIO-420x300.jpg"
             />
             }
         >
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
+            <h2>{props.accom.name}</h2>
+            <h4>{props.accom.price}</h4>
+            <h4>{props.accom.rating}</h4>
         </Card>
     );
 }
