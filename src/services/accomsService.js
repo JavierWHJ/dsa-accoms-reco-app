@@ -1,4 +1,5 @@
 const getAccoms = (input) => {
+    console.log(input)
     return fetch("http://localhost:8080/getAccommsRecommendations", {
         method: "POST",
         headers: {

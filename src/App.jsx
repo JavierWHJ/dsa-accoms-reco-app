@@ -23,7 +23,7 @@ function App() {
 
     const [location, setLocation] = useState('Singapore');
     const [price, setPrice] = useState([0, 500]);
-    const [sortBy, setSortBy] = useState('rating');
+    const [sortBy, setSortBy] = useState('relevance');
     const [accomType, setAccomType] = useState('0');
     const [selectedAmenities, setSelectedAmenities] = useState([]);
 

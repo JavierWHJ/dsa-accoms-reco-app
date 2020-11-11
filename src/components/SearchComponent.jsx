@@ -22,8 +22,8 @@ const SearchComponent = (props) => {
     const { CheckableTag } = Tag;
     const { Option } = Select;
 
-    const handleLocationChange = (value) => {
-        props.setLocation(value)
+    const handleLocationInput = (event) => {
+        props.setLocation(event.target.value)
     }
 
     const onPriceChange = (value) => {
@@ -67,7 +67,7 @@ const SearchComponent = (props) => {
                 <h2 color="#2C2C2C" style={{fontSize: "30px", fontWeight: "600", margin: "0px"}}>Find your ideal accomodation!</h2>
                 <p color="#2C2C2C" style={{fontSize: "15px"}}>compares details from 200+ booking sites to help you find the right accomodation for you.</p>
                 <div className={styles.inputGroup}>
-                    <Input placeholder="Location “Singapore, Malaysia”" onChange={handleLocationChange} />
+                    <Input placeholder="Location “Singapore, Malaysia”" onChange={handleLocationInput} />
                     <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
                         <Button>Price per Night</Button>
                     </Dropdown>
@@ -77,6 +77,7 @@ const SearchComponent = (props) => {
                         <Option value="2">Both</Option>
                     </Select>
                     <Select defaultValue="Sort By" style={{ width: 150 }} onChange={handleSortByChange}>
+                        <Option value="relevance">Relevance</Option>
                         <Option value="rating">Rating</Option>
                         <Option value="price">Price</Option>
                     </Select>
