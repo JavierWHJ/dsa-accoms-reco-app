@@ -13,9 +13,10 @@ const AccomodationCard = (props) => {
             />
             }
         >
-            <h4 style={{margin: "0px", color: "grey"}}>{props.accom.address}</h4>
+            <h4 style={{margin: "0px", color: "grey"}}>{props.accom.location}</h4>
             <h1 style={{margin: "0px"}}>{props.accom.name}</h1>
-            <h4 style={{margin: "0px"}}>{props.accom.price}/Night</h4>
+            <h4 style={{margin: "0px"}}>${props.accom.price}/Night</h4>
+            <h4 style={{margin: "0px"}}>{props.accom.type}</h4>
             <Rating
                 initialRating={props.accom.rating}
                 readonly
@@ -24,8 +25,8 @@ const AccomodationCard = (props) => {
             />
             <br/>
             <br/>
-            {props.accom.amenities.map(amenity => {
-                return <Tag>{amenity}</Tag>
+            {Object.keys(props.accom).map((key) => {
+                return props.accom[key] === true ? <Tag>{key}</Tag> : ''
             })}
         </Card>
     );

@@ -17,25 +17,12 @@ import accomsService from './services/accomsService';
 
 const { Header, Content, Footer } = Layout;
 
-const amenitiesMap = {
-    "AC": "A0",
-    "breakfast": "A1",
-    "wifi": "A2",
-    "gym": "A3",
-    "kitchen": "A4",
-    "pool": "A5",
-    "bar": "A6",
-    "freeparking": "A7",
-    "balcony": "A8"
-}
-
 function App() {
     const [amenities, setAmenities] = useState([]);
     const [accoms, setAccoms] = useState([]);
 
     const [location, setLocation] = useState('Singapore');
-    const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(500);
+    const [price, setPrice] = useState([0, 500]);
     const [sortBy, setSortBy] = useState('rating');
     const [accomType, setAccomType] = useState('0');
     const [selectedAmenities, setSelectedAmenities] = useState([]);
@@ -51,15 +38,22 @@ function App() {
     }
 
     const getAccomsRecommendations = (input) => {
-        accomsService.getAccoms(input).then((accoms) => {
-            setAccoms(accoms);
+        accomsService.getAccoms(input).then((accom) => {
+            setAccoms(accom)
         })
     }
 
 
-    const onSubmitSearch = (data) => {
-        //form submit object and send to service
-        console.log(data)
+    const onSubmitSearch = () => {
+        const accomsInput = {
+            destination: location,
+            minPrice: price[0],
+            maxPrice: price[1],
+            sortBy: sortBy,
+            accommodationType: accomType,
+            amenities: selectedAmenities
+        }
+        getAccomsRecommendations(accomsInput)
     }
 
     return (
@@ -83,7 +77,15 @@ function App() {
                             </Route>
                             <Route path="/">
                                 <CarouselComponent/>
-                                <SearchComponent amenities={amenities} onSubmitSearch={onSubmitSearch}/>
+                                <SearchComponent 
+                                    amenities={amenities}
+                                    onSubmitSearch={onSubmitSearch}
+                                    setLocation={setLocation}
+                                    setPrice={setPrice}
+                                    setSortBy={setSortBy}
+                                    setAccomType={setAccomType}
+                                    setSelectedAmenities={setSelectedAmenities}
+                                />
                             </Route>
                         </Switch>
                     </div>

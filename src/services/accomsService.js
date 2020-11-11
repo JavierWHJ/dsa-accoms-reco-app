@@ -1,21 +1,15 @@
 const getAccoms = (input) => {
-    const accomsInput = {
-        location: input.location,
-        minPrice: input.minPrice,
-        maxPrice: input.maxPrice,
-        sortBy: input.sortBy,
-        accommodationType: input.accommodationType,
-        amenities: input.amenities
-    }
     return fetch("http://localhost:8080/getAccommsRecommendations", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(accomsInput)
-    }).then(res => {
-        return res
-    });
+        body: JSON.stringify(input)
+    }).then(res => res.json())
+    .then(result => {
+        return result
+    })
+    .catch(console.log);
 }
 
 const getAmmenitiesList = () => {
