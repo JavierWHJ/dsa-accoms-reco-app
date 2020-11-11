@@ -17,35 +17,28 @@ import accomsService from './services/accomsService';
 
 const { Header, Content, Footer } = Layout;
 
-const tempData = [
-    {
-        name: 'hotel A',
-        address: '123 ABC Road',
-        price: '$500',
-        amenities: ['wifi', 'breakfast'],
-        rating: '4.3',
-    },
-    {
-        name: 'hotel B',
-        address: '123 ABC Road',
-        price: '$300',
-        amenities: ['wifi'],
-        rating: '3.3',
-    },
-    {
-        name: 'hotel C',
-        address: '123 ABC Road',
-        price: '$800',
-        amenities: ['wifi', 'breakfast', 'gym'],
-        rating: '5.0',
-    },
-]
-
-// const amenities = ['wifi', 'breakfast', 'gym', 'pool', 'kitchen', 'tv'];
+const amenitiesMap = {
+    "AC": "A0",
+    "breakfast": "A1",
+    "wifi": "A2",
+    "gym": "A3",
+    "kitchen": "A4",
+    "pool": "A5",
+    "bar": "A6",
+    "freeparking": "A7",
+    "balcony": "A8"
+}
 
 function App() {
     const [amenities, setAmenities] = useState([]);
     const [accoms, setAccoms] = useState([]);
+
+    const [location, setLocation] = useState('Singapore');
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(500);
+    const [sortBy, setSortBy] = useState('rating');
+    const [accomType, setAccomType] = useState('0');
+    const [selectedAmenities, setSelectedAmenities] = useState([]);
 
     useEffect(() => {
         getAmenities();
@@ -57,14 +50,15 @@ function App() {
         })
     }
 
-    const getAccomsRecommendations = (query) => {
-        accomsService.getAccoms(query).then((accoms) => {
+    const getAccomsRecommendations = (input) => {
+        accomsService.getAccoms(input).then((accoms) => {
             setAccoms(accoms);
         })
     }
 
 
     const onSubmitSearch = (data) => {
+        //form submit object and send to service
         console.log(data)
     }
 
@@ -85,7 +79,7 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/accomodations">
-                                <AccomodationsComponent accoms={tempData}/>
+                                <AccomodationsComponent accoms={accoms}/>
                             </Route>
                             <Route path="/">
                                 <CarouselComponent/>
