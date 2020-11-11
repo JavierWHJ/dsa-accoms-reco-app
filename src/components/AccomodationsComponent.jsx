@@ -26,11 +26,11 @@ const AccomodationsComponent = (props) => {
     return (
         <div style={{ background: "#FFFFFF"}}>
             <div style={{marginLeft: "30px", marginRight: "30px"}}>
-                <div>
+                {/* <div>
                     <Dropdown overlay={menu} placement="bottomLeft">
                         <Button>Amenities</Button>
                     </Dropdown>
-                </div>
+                </div> */}
                 <div style={{display: "flex", flexWrap: "wrap"}}>
                     {props.accoms.map((accom) => {
                         return <AccomodationCard accom={accom}/>

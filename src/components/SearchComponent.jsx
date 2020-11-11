@@ -28,12 +28,13 @@ const SearchComponent = (props) => {
                     <Link to="/accomodations"><button type="submit" class="ant-btn ant-btn-primary ant-btn-lg" onClick={props.onSubmitSearch}><span>Find Accomodations</span></button></Link>
                 </div>
                 <div>
-                    <span style={{ marginRight: 8 }}>Categories:</span>
-                    {props.amenities.map(tag => (
+                    <span style={{ marginRight: 8 }}>Amenities:</span>
+                    {props.amenities && props.amenities.map(tag => (
                     <CheckableTag
                         key={tag}
                         checked={selectedTags.indexOf(tag) > -1}
                         onChange={checked => handleChange(tag, checked)}
+                        style={{border: '1px solid black'}}
                     >
                         {tag}
                     </CheckableTag>
@@ -45,3 +46,19 @@ const SearchComponent = (props) => {
 }
 
 export default SearchComponent;
+
+// json input
+  // {
+  //   Country name
+  //   "destination": "dummyLocation",
+  //   default 0 if not included
+  //   "minPrice": 0,
+  //     "maxPrice": 1500,
+  //     rating, price, relevance (default: relevance)
+  //     "sortBy": "rating",
+  //       0 = Hotel, 1 = Airbnb, 2 = both
+  //       "accomodationType": 1,
+  //       ranked from 1 - 5 (default: Empty)
+  //       if less than 5 inputs the rest are empty
+  //       "amenities": ["pool", "wifi", "restaurant"]
+  // }

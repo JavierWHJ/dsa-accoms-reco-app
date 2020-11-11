@@ -4,7 +4,7 @@ const getAccoms = (input) => {
         ratings: input.ratings,
         ammenities: input.ammenities,
     }
-    return fetch("http://localhost:3030/accoms", {
+    return fetch("http://localhost:8080/getAccommsRecommendations", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -16,7 +16,7 @@ const getAccoms = (input) => {
 }
 
 const getAmmenitiesList = () => {
-    return fetch("http://localhost:5000/ammenities")
+    return fetch("http://localhost:8080/getAmenitiesList")
     .then(res => res.json())
     .then(result => {
         return result

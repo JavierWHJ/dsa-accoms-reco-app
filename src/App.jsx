@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
 import CarouselComponent from './components/CarouselComponent';
@@ -12,6 +13,7 @@ import {
     Route
 } from "react-router-dom";
 import AccomodationsComponent from './components/AccomodationsComponent';
+import accomsService from './services/accomsService';
 
 const { Header, Content, Footer } = Layout;
 
@@ -39,9 +41,20 @@ const tempData = [
     },
 ]
 
-const amenities = ['wifi', 'breakfast', 'gym', 'pool', 'kitchen', 'tv'];
+// const amenities = ['wifi', 'breakfast', 'gym', 'pool', 'kitchen', 'tv'];
 
 function App() {
+    const [amenities, setAmenities] = useState([]);
+
+    useEffect(() => {
+        getAmenities();
+    }, [])
+
+    const getAmenities = () => {
+        accomsService.getAmmenitiesList().then((amenity) => {
+            setAmenities(amenity)
+        })
+    }
 
     const onSubmitSearch = (data) => {
         console.log(data)
