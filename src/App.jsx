@@ -45,6 +45,7 @@ const tempData = [
 
 function App() {
     const [amenities, setAmenities] = useState([]);
+    const [accoms, setAccoms] = useState([]);
 
     useEffect(() => {
         getAmenities();
@@ -55,6 +56,13 @@ function App() {
             setAmenities(amenity)
         })
     }
+
+    const getAccomsRecommendations = (query) => {
+        accomsService.getAccoms(query).then((accoms) => {
+            setAccoms(accoms);
+        })
+    }
+
 
     const onSubmitSearch = (data) => {
         console.log(data)
